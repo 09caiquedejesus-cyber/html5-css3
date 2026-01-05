@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,28 +11,36 @@
         table{
             width: 500px;
             border-collapse: collapse;
+            position: relative;
         }
 
         caption{
             font-size: 1.5em;
             font-weight: bold;
-            background-color: lightgray ;
+            background-color:bisque;
             padding: 10px;
         }
         td,th{
             border: 1px solid black;
             padding: 10px;
         }
-        thead{
-            background-color: grey;
+        thead, tfoot{
+            background-color:#383838;
             color: white;
+        }
+
+        thead > tr > th{
+            position: sticky;
+            top:0;
+            background-color:#383838;
+
         }
         .num{
             text-align: right;
         }
 
         tbody > tr:nth-child(2n){/* ou pode usar odd(impar) e even(impar)*/
-            background-color: lightgrey;
+            background-color:aqua;
         }
     </style>
 </head>
@@ -193,5 +201,11 @@ Usado quando o cabeçalho vale para um grupo de linhas.
             </tr>
         </tfoot>
     </table>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ea voluptatem quod, cupiditate necessitatibus sunt repellat unde eaque sapiente omnis ab iste quibusdam nemo, repudiandae perspiciatis, maiores adipisci! Vitae, soluta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quia pariatur ab possimus ipsa, distinctio harum reprehenderit tenetur repudiandae. Quos corporis aspernatur possimus illo alias, vel adipisci quo facere ea! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, nihil! Praesentium ex odio deleniti, ipsam minima labore tempore accusantium asperiores dolorum aut dicta, saepe provident voluptatibus commodi. Debitis, adipisci soluta. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sequi quos sunt provident nulla fugiat temporibus repudiandae cum, facilis deleniti placeat assumenda, accusamus distinctio dolore necessitatibus unde dolores, vitae nisi?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ea voluptatem quod, cupiditate necessitatibus sunt repellat unde eaque sapiente omnis ab iste quibusdam nemo, repudiandae perspiciatis, maiores adipisci! Vitae, soluta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quia pariatur ab possimus ipsa, distinctio harum reprehenderit tenetur repudiandae. Quos corporis aspernatur possimus illo alias, vel adipisci quo facere ea! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, nihil! Praesentium ex odio deleniti, ipsam minima labore tempore accusantium asperiores dolorum aut dicta, saepe provident voluptatibus commodi. Debitis, adipisci soluta. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sequi quos sunt provident nulla fugiat temporibus repudiandae cum, facilis deleniti placeat assumenda, accusamus distinctio dolore necessitatibus unde dolores, vitae nisi?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ea voluptatem quod, cupiditate necessitatibus sunt repellat unde eaque sapiente omnis ab iste quibusdam nemo, repudiandae perspiciatis, maiores adipisci! Vitae, soluta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quia pariatur ab possimus ipsa, distinctio harum reprehenderit tenetur repudiandae. Quos corporis aspernatur possimus illo alias, vel adipisci quo facere ea! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, nihil! Praesentium ex odio deleniti, ipsam minima labore tempore accusantium asperiores dolorum aut dicta, saepe provident voluptatibus commodi. Debitis, adipisci soluta. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sequi quos sunt provident nulla fugiat temporibus repudiandae cum, facilis deleniti placeat assumenda, accusamus distinctio dolore necessitatibus unde dolores, vitae nisi?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ea voluptatem quod, cupiditate necessitatibus sunt repellat unde eaque sapiente omnis ab iste quibusdam nemo, repudiandae perspiciatis, maiores adipisci! Vitae, soluta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quia pariatur ab possimus ipsa, distinctio harum reprehenderit tenetur repudiandae. Quos corporis aspernatur possimus illo alias, vel adipisci quo facere ea! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, nihil! Praesentium ex odio deleniti, ipsam minima labore tempore accusantium asperiores dolorum aut dicta, saepe provident voluptatibus commodi. Debitis, adipisci soluta. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sequi quos sunt provident nulla fugiat temporibus repudiandae cum, facilis deleniti placeat assumenda, accusamus distinctio dolore necessitatibus unde dolores, vitae nisi?</p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dolorem quaerat quibusdam cupiditate, repudiandae, eum nemo sequi earum voluptatem dignissimos eligendi quod similique magni! Quis quod earum ipsam dolor amet.
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ea voluptatem quod, cupiditate necessitatibus sunt repellat unde eaque sapiente omnis ab iste quibusdam nemo, repudiandae perspiciatis, maiores adipisci! Vitae, soluta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quia pariatur ab possimus ipsa, distinctio harum reprehenderit tenetur repudiandae. Quos corporis aspernatur possimus illo alias, vel adipisci quo facere ea! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, nihil! Praesentium ex odio deleniti, ipsam minima labore tempore accusantium asperiores dolorum aut dicta, saepe provident voluptatibus commodi. Debitis, adipisci soluta. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sequi quos sunt provident nulla fugiat temporibus repudiandae cum, facilis deleniti placeat assumenda, accusamus distinctio dolore necessitatibus unde dolores, vitae nisi?</p>
 </body>
 </html>
