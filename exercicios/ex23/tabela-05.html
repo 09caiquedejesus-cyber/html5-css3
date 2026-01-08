@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        table{
+            width: 500px;
+            border-collapse: collapse;
+        }
+        th,td{
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        caption{
+            font-size: 1.3em;
+            font-weight: bolder;
+            padding: 8px;
+        }
+
+        .nome{
+            background-color: grey;
+        }
+        .grupo{
+            background-color: greenyellow;
+        }
+    </style>
+    <title>tabela-05</title>
+</head>
+<body>
+
+    <!--
+    
+    A tag <colgroup> é usada em tabelas HTML para agrupar colunas e aplicar estilos ou configurações a elas de forma organizada 👍
+
+    Ela atua junto com a tag <col>
+
+    🔹 span
+
+Define quantas colunas o <col> vai afetar.
+
+🧠 Dica importante
+
+Use <colgroup> quando:
+
+A tabela for grande
+
+Várias colunas precisarem do mesmo estilo
+
+Você quiser evitar CSS repetitivo
+
+-->
+    <table>
+
+        <colgroup>
+            <col class="nome">
+            <col class="grupo" span="3">
+        
+        </colgroup>
+        <caption>Cadastro</caption>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Idade</th>
+                <th scope="col">profissão</th>
+            </tr>
+
+            <tr>
+                <td>Ana Maria</td>
+                <td>F</td>
+                <td>25</td>
+                <td>jornalista</td>
+            </tr>
+
+            <tr>
+                 <td>Caique</td>
+                <td>M</td>
+                <td>22</td>
+                <td>programador</td>
+            </tr>
+
+            <tr>
+                 <td>João</td>
+                <td>M</td>
+                <td>30</td>
+                <td>Jogador</td>
+            </tr>
+
+            <tr>
+                <td>Elena</td>
+                <td>F</td>
+                <td>23</td>
+                <td>Analista</td>
+            </tr>
+
+            <tr>
+                <td>Pedro</td>
+                <td>M</td>
+                <td>45</td>
+                <td>Cantor</td>
+            </tr>
+
+            <tr>
+                <td>Ana</td>
+                <td>F</td>
+                <td>19</td>
+                <td>Estudante</td>
+            </tr>
+    </table>
+</body>
+</html>
