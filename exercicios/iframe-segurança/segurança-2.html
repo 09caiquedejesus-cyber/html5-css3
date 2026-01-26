@@ -7,7 +7,7 @@
 </head>
 <body>
     <!--
-    🔒 sandbox — o que ele faz de verdade?
+  🔒 sandbox — o que ele faz de verdade?
 
 Quando você usa sandbox no <iframe>, você tranca a página carregada dentro do iframe, como se fosse uma “prisão de segurança”.
 
@@ -53,6 +53,221 @@ Permite rodar JavaScript
 Sem isso:
 
 onclick, fetch, validações JS, nada funciona
+
+⚠️ Combinação perigosa?
+
+Sim, um pouco 👇
+
+allow-same-origin + allow-scripts
+
+
+Essa combinação quase anula o sandbox, porque o JS passa a ter acesso completo ao conteúdo.
+
+👉 Use isso apenas se confiar na página (pag.04.html).
+
+🔐 referrerpolicy="strict-origin-when-cross-origin"
+
+Isso controla quais informações do seu site são enviadas quando o iframe faz requisições externas:
+
+Mesmo domínio → envia URL completa
+
+Domínio diferente → envia só a origem
+
+HTTPS → HTTP → não envia nada
+
+✔️ Ótima escolha para segurança e privacidade.
+
+📌 Quando esse código é ideal?
+
+✔️ Páginas internas
+✔️ Conteúdo confiável
+✔️ Sites que precisam de JS e formulários
+
+🧪 Exemplo mais seguro (se não precisar de JS):
+sandbox="allow-forms"
+
+🔒 Máximo de segurança:
+sandbox
+
+
+(sempre começa fechado e você vai liberando aos poucos)
+
+Se quiser, posso:
+
+avaliar se essa sandbox está segura pro seu caso
+
+sugerir a melhor combinação
+
+explicar cada allow-* existente
+
+Só me dizer 👌
+
+me explique mais sobre o sndnox
+
+Perfeito 😄 vamos aprofundar no sandbox do <iframe>, do jeito certo e sem complicar.
+
+Pensa no sandbox como um “modo prisão” para a página dentro do iframe.
+Ele existe pra segurança, principalmente quando você carrega conteúdo que não é 100% confiável.
+
+🔐 O que acontece quando você usa sandbox?
+<iframe src="pagina.html" sandbox></iframe>
+
+
+👉 Tudo é bloqueado por padrão:
+
+A página NÃO pode:
+
+Executar JavaScript
+
+Enviar formulários
+
+Abrir pop-ups
+
+Usar cookies
+
+Acessar localStorage / sessionStorage
+
+Redirecionar a página principal
+
+Acessar window.top ou parent
+
+Ou seja: totalmente isolada.
+
+🧩 Como o sandbox funciona na prática?
+
+Você não “ativa” permissões, você remove bloqueios com allow-*.
+
+Exemplo:
+
+sandbox="allow-scripts"
+
+
+➡️ “Pode rodar JS, mas continua preso em todo o resto”.
+
+🧠 Todos os allow-* (explicados um por um)
+✅ allow-scripts
+
+Permite JavaScript
+
+Ainda bloqueia:
+
+acesso à página principal
+
+cookies (se não tiver allow-same-origin)
+
+✅ allow-forms
+
+Permite <form>
+
+Sem isso:
+
+botão submit não funciona
+
+⚠️ allow-same-origin
+
+A página passa a ser tratada como mesma origem
+
+Libera:
+
+cookies
+
+localStorage
+
+⚠️ Perigoso com allow-scripts
+
+🚪 allow-popups
+
+Permite window.open()
+
+Usado para:
+
+login
+
+pagamentos
+
+🪟 allow-modals
+
+Permite:
+
+alert()
+
+confirm()
+
+prompt()
+
+🔄 allow-top-navigation
+
+Permite redirecionar a página principal
+
+window.top.location = "site.com";
+
+
+⚠️ RISCO ALTO
+
+🖱️ allow-pointer-lock
+
+Permite capturar o mouse
+
+Jogos, apps 3D
+
+📋 allow-downloads
+
+Permite downloads
+
+Útil para PDFs, relatórios
+
+⚠️ Combinação crítica (evite se possível)
+sandbox="allow-scripts allow-same-origin"
+
+
+Isso quebra quase toda a segurança, pois o JS passa a agir como página normal.
+
+🛡️ Regra de ouro do sandbox
+
+👉 Comece sempre assim:
+
+sandbox
+
+
+Depois pergunte:
+
+Precisa de JS? → allow-scripts
+
+Precisa de formulário? → allow-forms
+
+Precisa MESMO de cookies? → allow-same-origin
+
+📌 Exemplos reais
+🔒 Conteúdo externo (mais seguro):
+<iframe src="https://externo.com" sandbox></iframe>
+
+⚖️ Externo com JS (mínimo):
+sandbox="allow-scripts"
+
+🏠 Página interna confiável:
+sandbox="allow-scripts allow-forms"
+
+🧠 Dica profissional
+
+O sandbox protege seu site, não o usuário do iframe.
+
+Ele impede:
+
+XSS
+
+clickjacking
+
+vazamento de dados
+
+scripts maliciosos
+
+Se quiser, me manda:
+
+o tipo de site (blog, sistema, app)
+
+se o iframe é interno ou externo
+
+Que eu te digo a melhor sandbox possível pro seu caso 🔐💻
     
     -->
 </body>
