@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="neferrer" content="script-origin-when-cross-origin">
+    <title>iframe</title>
+</head>
+<body>
+    <!--
+        A tag/atributo referrerpolicy serve pra controlar quais informações da página atual (referrer) são enviadas quando o navegador faz uma requisição para outro site (links, imagens, iframes, scripts etc.).
+
+        👉 Em resumo: ela define se o site de destino vai saber de onde o usuário veio.
+
+
+📌 Onde usar referrerpolicy
+Pode ser usada em várias tags:
+
+<a href="https://exemplo.com" referrerpolicy="no-referrer">Link</a>
+
+<img src="img.jpg" referrerpolicy="no-referrer">
+
+<iframe src="pagina.html" referrerpolicy="strict-origin"></iframe>
+
+<script src="script.js" referrerpolicy="origin"></script>
+
+
+Também dá pra definir globalmente no <head>:
+
+    <meta name="referrer" content="no-referrer">
+
+🧠 Principais valores do referrerpolicy
+
+🔒 no-referrer
+
+Não envia nenhuma informação da página de origem.
+
+    referrerpolicy="no-referrer"
+
+    🌐 no-referrer-when-downgrade (padrão)
+
+Envia o referrer apenas se for HTTPS → HTTPS.
+
+
+🏷 origin
+
+Envia só o domínio, sem caminho.
+
+🧭 origin-when-cross-origin
+
+Mesmo site: envia completo
+
+Outro site: envia só o domínio
+
+🔐 strict-origin
+
+Envia o domínio somente se não houver downgrade de segurança.
+
+🔐🧭 strict-origin-when-cross-origin (mais usado hoje)
+
+Mesmo site: envia completo
+
+Outro site: envia só o domínio
+
+HTTPS → HTTP: não envia nada
+
+
+
+🌍 unsafe-url
+
+Envia a URL completa (menos seguro ⚠️)
+
+
+💡 Quando usar na prática?
+
+Privacidade → no-referrer
+
+Segurança + compatibilidade moderna → strict-origin-when-cross-origin
+
+Analytics simples → origin
+
+
+
+
+
+✅ Melhor referrerpolicy para sites modernos
+
+A mais usada e recomendada é:
+
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+🔍 Por quê?
+
+🔐 Mais segura
+
+🕵️‍♂️ Protege a privacidade
+
+📊 Não quebra analytics
+
+🌐 É o padrão dos navegadores modernos
+
+📌 Como usar em casos comuns
+🔗 Links externos
+<a href="https://site-externo.com"
+   referrerpolicy="strict-origin-when-cross-origin">
+   Acessar
+</a>
+
+🖼 Imagens externas
+<img src="https://cdn.com/img.png"
+     referrerpolicy="no-referrer">
+
+
+👉 Bom pra evitar rastreamento por CDN
+
+🧩 iframe (muito importante!)
+<iframe src="https://outrosite.com"
+        referrerpolicy="strict-origin">
+</iframe>
+
+
+👉 Evita vazar dados da sua página
+
+📜 Scripts externos
+<script src="https://cdn.com/lib.js"
+        referrerpolicy="origin"></script>
+
+⚠️ Atenção
+
+Se você não definir nada, o navegador usa
+strict-origin-when-cross-origin
+
+unsafe-url quase nunca deve ser usado
+
+🧠 Dica profissional
+
+Se você estiver criando:
+
+Site institucional → use global no <meta>
+
+App web / SPA → combine global + exceções
+
+Sites com iframe externo → sempre defina manualmente
+
+Se quiser, posso te mostrar um exemplo completo de <head> profissional ou comparar com rel="noreferrer" 😉
+
+uma duvida se eu usar global protege todos os links e iframes xternos
+
+Ótima dúvida — e a resposta curta é: sim, protege quase todos, mas com algumas exceções importantes 👇
+
+✅ Usar referrerpolicy global protege o quê?
+
+Quando você usa no <head>:
+
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+🔒 Isso vale automaticamente para:
+
+✅ Links externos (<a>)
+
+✅ iframes externos
+
+✅ imagens externas
+
+✅ scripts externos
+
+✅ requisições automáticas do navegador
+
+👉 Ou seja: todos os elementos que NÃO definirem uma política própria.
+
+⚠️ Quando o global NÃO vale?
+
+O global pode ser sobrescrito se o elemento tiver sua própria regra:
+
+<iframe src="https://externo.com"
+        referrerpolicy="no-referrer">
+</iframe>
+
+
+👉 Aqui, o iframe ignora o global e usa o dele.
+
+🔁 Ordem de prioridade (importante)
+
+1️⃣ referrerpolicy no elemento
+2️⃣ <meta name="referrer">
+3️⃣ Padrão do navegador
+
+🧠 Resumo prático
+
+✔ Sim, o global protege links e iframes externos
+✔ Funciona como regra padrão do site inteiro
+✔ Pode ser customizado por elemento
+❌ Não impede totalmente rastreamento (cookies, fingerprint etc.)
+
+💡 Dica profissional
+
+O setup mais usado hoje é:
+
+<head>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+</head>
+
+
+E só mudar manualmente quando necessário (ex: API, iframe sensível).
+
+Se quiser, te explico a diferença entre referrerpolicy e rel="noreferrer" ou mostro quando usar no-referrer sem quebrar nada 😄
+
+sim
+
+Beleza 😄 então vamos comparar direto e sem enrolação:
+
+🔁 referrerpolicy × rel="noreferrer"
+🧩 referrerpolicy
+
+Controla o que é enviado como referência.
+
+<a href="https://exemplo.com"
+   referrerpolicy="strict-origin-when-cross-origin">
+   Link
+</a>
+
+
+✔ Funciona em links, iframes, imagens, scripts
+✔ Pode ser global (<meta>)
+✔ Mais flexível
+✔ Não interfere no comportamento do link
+
+🔗 rel="noreferrer"
+
+Bloqueia totalmente o envio do referrer e remove o acesso ao window.opener.
+
+<a href="https://exemplo.com"
+   rel="noreferrer">
+   Link
+</a>
+
+
+✔ Bloqueia 100% o referrer
+✔ Protege contra ataques tipo tabnabbing
+❌ Só funciona em <a>
+❌ Não pode ser global
+❌ Sem controle fino
+
+⚠️ Diferença importante (segurança)
+<a href="https://externo.com" target="_blank">
+
+
+🔴 Sem proteção → site externo pode acessar sua aba
+🟢 Com proteção:
+
+<a href="https://externo.com"
+   target="_blank"
+   rel="noopener noreferrer">
+
+🧠 Qual usar na prática?
+✅ Recomendação profissional
+
+🌐 Global no site
+
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+
+🔗 Links externos com target="_blank"
+
+<a href="https://site.com"
+   target="_blank"
+   rel="noopener noreferrer">
+
+📌 Resumo final
+Situação	Melhor escolha
+Site inteiro	referrerpolicy global
+Link externo novo tab	rel="noopener noreferrer"
+iframe externo	referrerpolicy
+Bloqueio total	no-referrer
+
+Se quiser, posso te mostrar um template HTML profissional completo, já com tudo certinho pra produção 🚀
+
+
+    
+    
+    -->
+</body>
+</html>
