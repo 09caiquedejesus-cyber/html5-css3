@@ -2,3 +2,79 @@
 
 /* todas as demais midias */
 
+/* typical device Brekpoint
+    Pequenas telas:até 600px
+    celular:de 600px até 768px
+    Tablet:768px até 992px
+    desktop:992px até 1200px
+    Grandes Telas:acima de 1200px
+
+    typical device Brekpoint atual 22/02/2026
+
+        Base: 0px - 767px (mobile)
+        @media (min-width: 768px)=tablet
+        @media (min-width: 1024px)=laptop
+        @media (min-width: 1280px)=desktop grande 
+
+*/
+
+
+
+@media print{/*impressoras*/
+    body{
+        background-image: url('../img/back-print.jpg');
+
+        img#phone{display: none;}
+        img#tablet{display: none;}
+        img#print{display: block;}
+        img#pc{display: none;}
+        img#tv{display: none;}
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:992px){/*Tablet*/
+    body{
+        background-image: url('../img/back-tablet.jpg');
+
+        img#phone{display: none;}
+        img#tablet{display: block;}
+        img#print{display: none;}
+        img#pc{display: none;}
+        img#tv{display: none;}
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1200px){/*Desktop*/
+
+    body{
+        background-image: url('../img/back-pc.jpg');
+
+        img#phone{display: none;}
+        img#tablet{display: none;}
+        img#print{display: none;}
+        img#pc{display: block;}
+        img#tv{display: none;}
+    }
+
+}
+
+@media screen and (min-width:1200px){/*Grandes Telas*/
+
+    body{
+        background-image:url('../img/back-tv.jpg');
+    }
+
+    main{
+        width: 700px;
+    }
+
+        img#phone{display: none;}
+        img#tablet{display: none;}
+        img#print{display: none;}
+        img#pc{display: none;}
+        img#tv{display: block;}
+    
+}
+
+
+
