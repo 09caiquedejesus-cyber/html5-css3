@@ -4,47 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>grid layout</title>
-    <style>
-        div.container{
-            border:3px solid blue;
-            display: grid;
-            grid-template-columns:repeat(4,1fr);
-            grid-template-rows: repeat(3,100px);
-            gap: 10px;
-        }
-
-        div.item1{
-            border: 3px solid red;
-            grid-row-start: 1;
-            grid-row-end: 2;
-            grid-column-start: 1;
-            grid-column-end: 5;
-            text-align: center;
-        }
-
-        div.item2{
-              border: 3px solid yellow;
-            grid-row-start: 2;
-            grid-row-end: 4;
-            grid-column-start: 1;
-            grid-column-end: 3;
-        }
-
-        div.item3{
-              border: 3px solid black;
-            grid-row-start: 2;
-            grid-row-end: 4;
-            grid-column-start: 3;
-            grid-column-end: 5; 
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <div class="item1"><h1>caique de jesus santos</h1></div>
-        <div class="item2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum illo provident blanditiis nihil quos a fugiat necessitatibus incidunt earum labore, soluta nisi itaque, esse consequuntur! Nisi fuga unde itaque praesentium! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio facere maxime assumenda perspiciatis dignissimos laboriosam quo quae ducimus impedit neque maiores blanditiis voluptates sed repellat minus, omnis temporibus! Soluta, cum!</div>
-        <div class="item3"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, iure! Iste amet consequuntur non, recusandae veniam quod doloribus omnis incidunt eius adipisci architecto voluptatum aliquam molestias fuga id! Odit, in. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus ut corporis nisi commodi voluptatibus sunt dolore illo. Numquam, nihil omnis magnam temporibus nostrum dolorum, molestias adipisci eligendi neque ducimus expedita!</p></div>
+        <div class="caixa1">caixa 01</div>
+        <div class="caixa2">caixa 02</div>
+        <div class="caixa3">caixa 03</div>
     </div>
-
+    
 </body>
 </html>
